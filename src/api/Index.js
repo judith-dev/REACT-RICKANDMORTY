@@ -26,17 +26,17 @@ const getApi = async () => {
 	}
 }
 
-export const getPictureDetail = ({idVideo}) => new Promise((resolve,reject) => {
+export const getPictureDetail = ({id}) => new Promise((resolve,reject) => {
   setTimeout(()=> {
-   const video = FAKE_DATA.find((el) => parseInt(el.id) === parseInt(idVideo));
+   const picture = FAKE_DATA.find((el) => parseInt(el.id) === parseInt(id));
 
-   if(!video) return reject({message:"No se ha encontrado el video :("});
+   if(!picture) return reject({message:"No se ha encontrado el video :("});
    
-   if(video.description) return resolve(video)
+   if(picture.description) return resolve(picture)
     
-   return getApi().then(description => {
-       video.description = description.join();
-       return resolve(video);
+   return getApi().then(name => {
+    picture.name = name.join();
+       return resolve(picture);
    }).catch(console.error);
   }, FAKE_DALAY);
 });
