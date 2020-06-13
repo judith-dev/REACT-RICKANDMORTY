@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Loading from './Loading';
 import Item from './Item';
+import Header from './Header';
 
 import { getRickandMorty } from '../api/Index'
 
@@ -36,6 +37,7 @@ class List extends Component {
        }
 
        return (<React.Fragment>
+             <Header></Header>
                <div className="container">
                     <div className="grid-container">
                     {

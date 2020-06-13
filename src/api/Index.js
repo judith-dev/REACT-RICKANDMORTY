@@ -27,16 +27,12 @@ const getApi = async () => {
 }
 
 export const getPictureDetail = ({id}) => new Promise((resolve,reject) => {
-  setTimeout(()=> {
-   const picture = FAKE_DATA.find((el) => parseInt(el.id) === parseInt(id));
 
-   if(!picture) return reject({message:"No se ha encontrado el video :("});
-   
-   if(picture.description) return resolve(picture)
-    
-   return getApi().then(name => {
-    picture.name = name.join();
-       return resolve(picture);
-   }).catch(console.error);
-  }, FAKE_DALAY);
+  getApi()
+  .then( data => {
+    const picture  =  data.results.find((el) => parseInt(el.id) === parseInt(id))
+    if(!picture) return reject({message:"No se ha encontrado la imagen :("});
+    if(picture.name) return resolve(picture)
+  });
+
 });
