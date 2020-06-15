@@ -2,10 +2,10 @@ const FAKE_DALAY = 2000;
 const FAKE_API = 'https://rickandmortyapi.com/api/character/';
 const FAKE_DATA = [];
 
-export const addVideo = (newVideo) => Promise((resolve, reject) => {
+export const addPicture = (newPicture) => Promise((resolve, reject) => {
     setTimeout(() => {
-        newVideo.id = FAKE_DATA.length + 1;
-        FAKE_DATA.push(newVideo);
+        newPicture.id = FAKE_DATA.length + 1;
+        FAKE_DATA.push(newPicture);
         return resolve({ok:1});
     }, FAKE_DALAY)
 });
@@ -36,3 +36,11 @@ export const getPictureDetail = ({id}) => new Promise((resolve,reject) => {
   });
 
 });
+
+// export const AddPicture = (newPicture) => new Promise((resolve,reject) => {
+//    setTimeout(() => {
+//     newPicture.id = FAKE_DATA.length + 1;
+//     FAKE_DATA.push(newPicture);
+//     return resolve({ok:1});
+//    },FAKE_DALAY);
+// });
